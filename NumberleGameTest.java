@@ -14,6 +14,7 @@ public class NumberleGameTest {
     }
 
 
+    // @invariant The model should not be null.
     @Test
     public void testInitialize() throws Exception{
         /**
@@ -35,6 +36,17 @@ public class NumberleGameTest {
     }
 
 
+    /**
+     * @requires The game should not be won or over after start.
+     * @ensures The game should be over after MAX_ATTEMPTS wrong attempts.
+     * @ensures The current guess of the model should be equal to the input.
+     * @ensures The game should not be won after the first wrong try, and the game should not be over after the first wrong try.
+     * @ensures The initial remaining attempts should be MAX_ATTEMPTS, and it should decrease by 1 after each wrong attempt until it reaches 0.
+     * @ensures The game should not be won after running out of chances, but the game should be over after MAX_ATTEMPTS wrong attempts.
+     * @ensures After inputting the correct equation, the game should be won and over.
+     * @ensures The color should show the information of the situation about the input.
+     * @ensures The color should be all green after inputting the right equation.
+     */
     @Test
     public void testGameProcess() throws FileNotFoundException {
         /**
@@ -86,6 +98,12 @@ public class NumberleGameTest {
 
     }
 
+    /**
+     * @requires The NumberleModel instance is initialized and ready for testing.
+     * @ensures The method tests various scenarios including valid input, input with incorrect length, input with invalid characters,
+     *          input with invalid equation format, and input with incorrect math. The assertions verify that the controller processes
+     *          the input correctly, updates the remaining attempts as expected, and generates appropriate error messages when necessary.
+     */
     @Test
     public void testInputValid() throws FileNotFoundException {
         /**

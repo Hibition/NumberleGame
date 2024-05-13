@@ -21,7 +21,7 @@ public class NumberleModel extends Observable implements INumberleModel {
     private int[] guessSituation = new int[equationLength]; // the state of each symbols of currentGuess.
     private Map<Character, Integer> symbolStatus = new HashMap<>(); // the map to store the state of ten number and four arithmetic sign
 
-    private boolean showEquationFlag = false;
+    private boolean showEquationFlag = true;
     private boolean validEquationFlag = true;
     private boolean randomEquationFlag = false;
 
@@ -160,6 +160,15 @@ public class NumberleModel extends Observable implements INumberleModel {
     }
 
 
+    /**
+     * @requires None.
+     * @ensures The targetEquation is initialized with a valid value from the file.
+     * @ensures The currentGuess is set to spaces ("       ") after initialization.
+     * @ensures The remainingAttempts is set to maxGuess after initialization.
+     * @ensures The gameWon flag is set to false after initialization.
+     * @ensures The guessSituation array is initialized appropriately after initialization.
+     * @ensures The invariant is maintained after initialization.
+     */
     @Override
     public void initialize() throws FileNotFoundException {
         /**
@@ -200,6 +209,17 @@ public class NumberleModel extends Observable implements INumberleModel {
         notifyObservers();
     }
 
+    /**
+     * @requires The invariant is true before processing input.
+     * @requires The input parameter is not null.
+     * @ensures The remainingAttempts stays the same if the input is not valid and validEquationFlag is true.
+     * @ensures The remainingAttempts decreases if the input is invalid and validEquationFlag is false.
+     * @ensures The remainingAttempts decreases after each try.
+     * @ensures The gameWon flag is updated appropriately if the input matches the targetEquation.
+     * @ensures The guessSituation array is updated correctly after each try.
+     * @ensures The invariant is maintained after processing input.
+     * @return true if the input is valid, false otherwise.
+     */
     @Override
     public boolean processInput(String input) {
         /**
