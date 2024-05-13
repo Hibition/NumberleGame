@@ -1,7 +1,7 @@
 package validations;
 
 public class ValidateLength implements Validation {
-    int equation_length;
+    private int equation_length;
 
     public ValidateLength(int length) {
         equation_length = length;

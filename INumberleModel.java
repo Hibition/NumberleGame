@@ -3,7 +3,6 @@ import java.util.List;
 import java.util.Observer;
 
 public interface INumberleModel {
-    int MAX_ATTEMPTS = 6;
 
     void initialize() throws FileNotFoundException;
 

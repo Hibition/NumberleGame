@@ -260,8 +260,8 @@ public class NumberleView extends JFrame implements Observer {
         }
 
         System.out.println("Remaining attempts: " + model.getRemainingAttempts());
-        if (model.isGameOver()) {
-            if (model.isGameWon()) {
+        if (controller.isGameOver()) {
+            if (controller.isGameWon()) {
                 JOptionPane.showMessageDialog(null, "<html><font size='5'>Congratulations, you won the game!</font></html>", "Game Result", JOptionPane.INFORMATION_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(null, "<html><font size='5'>Sorry! You run out of chances!</font></html>", "Game Result", JOptionPane.ERROR_MESSAGE);

@@ -26,7 +26,7 @@ public class NumberleController {
         return model.isGameWon();
     }
 
-    public String getTargetWord() {
+    public String getTargetEquation() {
         return model.getTargetEquation();
     }
 

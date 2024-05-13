@@ -2,7 +2,7 @@ package validations;
 
 public class ValidateFormate implements Validation {
     private boolean preCharacter; // if preChracter is 1 means it's number otherwise is operator.
-    int equation_length;
+    private int equation_length;
 
     public ValidateFormate(int length) {
         equation_length = length;

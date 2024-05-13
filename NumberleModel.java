@@ -190,7 +190,7 @@ public class NumberleModel extends Observable implements INumberleModel {
         if(showEquationFlag) System.out.println(targetEquation); // if the show equation flag is true, print out the target equation for testing
 
         currentGuess = "       ";
-        remainingAttempts = MAX_ATTEMPTS;
+        remainingAttempts = maxGuess;
         assert invariant():"invariant must be true";
         assert currentGuess != null : "currentGuess must not be null after initialization";
 
